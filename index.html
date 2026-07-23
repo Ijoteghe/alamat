@@ -179,7 +179,8 @@ Kelantan.
 
 </div>
 
-<a href="#" id="playButton" class="map-btn">🎵 PLAY MUSIC
+<a href="#" id="mapButton" class="map-btn">
+MAP
 </a>
 
 </div>
@@ -187,10 +188,16 @@ Kelantan.
 <script>
 const music = document.getElementById("bgMusic");
 
-document.getElementById("playButton").addEventListener("click", function(e){
-    e.preventDefault();
+window.onload = function () {
     music.volume = 0.6;
-    music.play();
+    music.play().catch(() => {});
+};
+
+document.getElementById("mapButton").addEventListener("click", function(e){
+    e.preventDefault();
+    music.pause();
+    music.currentTime = 0;
+    window.location.href = "https://www.google.com/maps?q=5.9556414,102.2503758";
 });
 </script>
 </body>
