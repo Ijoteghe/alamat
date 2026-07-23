@@ -133,7 +133,20 @@ padding:16px 55px;
 }
 
 }
+.map-btn,
+.map-btn:focus,
+.map-btn:active,
+.map-btn:visited{
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px #ff00ff;
+}
 
+a{
+    -webkit-tap-highlight-color: transparent;
+}
 </style>
 
 </head>
@@ -158,10 +171,9 @@ Kelantan.
 
 </div>
 
-<a href="#" id="mapButton" class="map-btn">
+<button id="mapButton" class="map-btn" type="button">
 MAP
-</a>
-
+</button>
 </div>
 
 <script>
