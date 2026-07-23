@@ -140,10 +140,8 @@ padding:16px 55px;
 
 <body>
 
-<audio id="bgMusic" autoplay loop>
-
-<source src="music.mp3" type="audio/mpeg">
-
+<audio id="bgMusic" preload="auto" loop>
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
@@ -169,15 +167,24 @@ MAP
 <script>
 const music = document.getElementById("bgMusic");
 
-window.onload = function () {
+// Cuba mainkan muzik apabila halaman dibuka
+window.addEventListener("load", async () => {
     music.volume = 0.6;
-    music.play().catch(() => {});
-};
 
-document.getElementById("mapButton").addEventListener("click", function(e){
+    try {
+        await music.play();
+    } catch (e) {
+        console.log("Autoplay disekat:", e);
+    }
+});
+
+// Hentikan muzik sebelum buka Google Maps
+document.getElementById("mapButton").addEventListener("click", async function(e){
     e.preventDefault();
+
     music.pause();
     music.currentTime = 0;
+
     window.location.href = "https://www.google.com/maps?q=5.9556414,102.2503758";
 });
 </script>
