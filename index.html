@@ -179,46 +179,20 @@ Kelantan.
 
 </div>
 
-<a href="#" id="mapButton" class="map-btn">
-
-📍 MAP
-
+<a href="#" id="playButton" class="map-btn">🎵 PLAY MUSIC
 </a>
 
 </div>
 
 <script>
+const music = document.getElementById("bgMusic");
 
-const music=document.getElementById("bgMusic");
-
-window.onload=function(){
-
-music.volume=0.6;
-
-music.play().catch(()=>{});
-
-}
-
-document.getElementById("mapButton").onclick=function(e){
-
-e.preventDefault();
-
-music.pause();
-
-music.currentTime=0;
-
-window.location.href="https://www.google.com/maps?q=5.9556414,102.2503758";
-
-}
-
-window.addEventListener("pagehide",function(){
-
-music.pause();
-
+document.getElementById("playButton").addEventListener("click", function(e){
+    e.preventDefault();
+    music.volume = 0.6;
+    music.play();
 });
-
 </script>
-
 </body>
 
 </html>
